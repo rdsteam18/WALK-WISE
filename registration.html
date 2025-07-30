@@ -316,6 +316,33 @@
                 }
             });
         });
+
+        async function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const data = {
+      fullName: form.fullName.value,
+      collegeName: form.collegeName.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      experience: form.experience.value
+    };
+
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxERa8z0YBJDQLb69ap__sOXPZ2ZT2FoZKkXJ_1YNb6mulinPMYGVyFfgWtyj0sYjfk/exec", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" }
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      alert("🎉 Registration Successful!");
+      form.reset();
+    } else {
+      alert("❌ Something went wrong.");
+    }
+  }
     </script>
 </body>
 </html>
