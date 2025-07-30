@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for WALK-WISE × WebCraze 1.0 by RDS TEAM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #4c51bf, #a3bffa, #ed64a6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .disabled-form {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <img src="https://walk-wise.odoo.com/web/image/website/1/logo/Walk-Wise?unique=a753db0" alt="Walk-Wise Logo" class="h-12 w-auto">
+                    <span class="text-2xl font-bold gradient-text ml-4">WALK-WISE × WebCraze 1.0</span>
+                </div>
+                <div class="hidden md:flex md:space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium">About</a>
+                    <a href="index.html#prizes" class="text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium">Prizes</a>
+                    <a href="index.html#faq" class="text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium">FAQ</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium">Contact</a>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="index.html#prizes" class="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Prizes</a>
+                <a href="index.html#faq" class="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+                <a href="index.html#contact" class="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Section -->
+    <section class="py-20">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 fade-in">
+                <h1 class="text-4xl font-extrabold gradient-text mb-4">Register for WebCraze 1.0</h1>
+                <p class="text-lg text-gray-600">Join the ultimate website design tournament by RDS TEAM! Fill out the form below to participate.</p>
+                <p id="registrationStatus" class="text-red-500 mt-2 hidden">Registration is closed as of August 2, 2025.</p>
+            </div>
+            <form id="registrationForm" class="bg-white rounded-2xl p-8 shadow-lg" onsubmit="handleSubmit(event)">
+                <div class="grid grid-cols-1 gap-6">
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                    </div>
+                    <div>
+                        <label for="collegeName" class="block text-sm font-medium text-gray-700">College Name</label>
+                        <input type="text" id="collegeName" name="collegeName" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" name="email" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" pattern="[0-9]{10}" placeholder="10-digit number" required>
+                    </div>
+                    <div>
+                        <label for="experience" class="block text-sm font-medium text-gray-700">Experience in Web Design</label>
+                        <select id="experience" name="experience" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                            <option value="">Select Experience</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Pro">Pro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 font-medium transition duration-300">
+                            Register Now
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <p id="errorMessage" class="text-red-500 text-center mt-4 hidden">Please fill all fields correctly.</p>
+        </div>
+    </section>
+
+    <!-- RDS TEAM Content -->
+    <section class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold gradient-text mb-6">RDS TEAM</h2>
+            <p class="text-lg text-gray-700 mb-6">Discover Cutting-Edge Tech Insights</p>
+            <p class="text-gray-600 mb-8">Creating the Trend Value Impact</p>
+            <p class="text-xl font-semibold text-gray-800 mb-6">RDS TEAM Helps You to Discover Tomorrow Today!</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <p class="text-3xl font-bold text-indigo-600">1.5K+</p>
+                    <p class="text-gray-600">Instagram Followers</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <p class="text-3xl font-bold text-indigo-600">2K+</p>
+                    <p class="text-gray-600">YouTube Subscribers</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <p class="text-3xl font-bold text-indigo-600">1K+</p>
+                    <p class="text-gray-600">WhatsApp Channel</p>
+                </div>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">World-Class Brands and Organizations Association</h3>
+            <p class="text-gray-600 mb-6">Look at My Recent Videos</p>
+            <p class="text-lg text-gray-700 mb-4">Take a step into the future and experience cutting-edge technology from the perspective of my most recent video insights!</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Hollyland Lark M1</h4>
+                    <p class="text-gray-600">Wireless Lavalier Microphone</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">My Buddy Spinlight</h4>
+                    <p class="text-gray-600">Elevate your workspace experience</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Portronics Dash 4 50W</h4>
+                    <p class="text-gray-600">HD sound, bass boost technology, and 360° RGB lights</p>
+                </div>
+            </div>
+            <p class="text-lg text-gray-700 mb-4">“Get ready to be amazed as you see the cutting-edge technology come to life.”</p>
+            <p class="text-gray-600 mb-6">My most recent videos are more than just content; they’re a way to gain insight, see new ideas firsthand, and see how mind-blowing advances are changing the world.</p>
+            <p class="text-lg text-gray-700 mb-4">You can learn more about the amazing technology of the 21st century with every click.</p>
+            <p class="text-xl font-semibold text-gray-800 mb-6">Are you prepared to see and go into the future? This is where you should start your trip through the newest tech products!</p>
+            <a href="mailto:contact@rdsteam.com" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-300">Got a Game-Changing Project? Contact Me Now!</a>
+            <p class="text-gray-600 mt-6">Follow My Social Media:</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="fab fa-youtube fa-2x"></i></a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="fab fa-whatsapp fa-2x"></i></a>
+            </div>
+            <p class="text-gray-600 mt-6">More than 3 million people are actively following me on WhatsApp, and the number keeps going up. I cover the newest technological changes and make the web a better place.</p>
+            <p class="text-gray-600 mt-4">Contact Details: <a href="mailto:contact@rdsteam.com" class="text-indigo-600 hover:underline">contact@rdsteam.com</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold gradient-text mb-4">WALK-WISE × WebCraze 1.0</h3>
+                    <p class="text-gray-400">
+                        The premier online website design tournament for creative minds worldwide. Organized by RDS TEAM.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                        <li><a href="index.html#prizes" class="text-gray-400 hover:text-white transition duration-300">Prizes</a></li>
+                        <li><a href="index.html#faq" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Judging Criteria</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Code of Conduct</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Sponsors</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Past Winners</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to get updates and tournament announcements.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-md w-full focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-700 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2025 WALK-WISE × WebCraze 1.0. All rights reserved. Powered by RDS TEAM.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Check registration deadline and disable form if past August 2, 2025
+        function checkRegistrationDeadline() {
+            const today = new Date();
+            const deadline = new Date('2025-08-02T00:00:00Z');
+            const form = document.getElementById('registrationForm');
+            const status = document.getElementById('registrationStatus');
+
+            if (today >= deadline) {
+                form.classList.add('disabled-form');
+                status.classList.remove('hidden');
+            }
+        }
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('registrationForm');
+            const errorMessage = document.getElementById('errorMessage');
+            const status = document.getElementById('registrationStatus');
+
+            if (form.classList.contains('disabled-form')) {
+                return;
+            }
+
+            // Basic validation
+            const fullName = document.getElementById('fullName').value.trim();
+            const collegeName = document.getElementById('collegeName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const experience = document.getElementById('experience').value;
+
+            if (!fullName || !collegeName || !email || !phone || !experience) {
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(email)) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            if (!/^[0-9]{10}$/.test(phone)) {
+                errorMessage.textContent = 'Please enter a valid 10-digit phone number.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            // Redirect to https://rdsteam18.netlify.app/ on successful submission
+            window.location.href = 'https://rdsteam18.netlify.app/';
+        }
+
+        // Run deadline check on page load
+        window.onload = checkRegistrationDeadline;
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
