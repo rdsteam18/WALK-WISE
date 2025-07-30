@@ -235,115 +235,104 @@
             </div>
         </div>
     </footer>
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+    // Check registration deadline and disable form if past August 2, 2025
+    function checkRegistrationDeadline() {
+        const today = new Date();
+        const deadline = new Date('2025-08-02T00:00:00Z');
+        const form = document.getElementById('registrationForm');
+        const status = document.getElementById('registrationStatus');
 
-        // Check registration deadline and disable form if past August 2, 2025
-        function checkRegistrationDeadline() {
-            const today = new Date();
-            const deadline = new Date('2025-08-02T00:00:00Z');
-            const form = document.getElementById('registrationForm');
-            const status = document.getElementById('registrationStatus');
+        if (today >= deadline) {
+            form.classList.add('disabled-form');
+            status.classList.remove('hidden');
+        }
+    }
 
-            if (today >= deadline) {
-                form.classList.add('disabled-form');
-                status.classList.remove('hidden');
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
             }
+        });
+    });
+
+    // Form submission handler
+    document.getElementById('registrationForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const form = document.getElementById('registrationForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const status = document.getElementById('registrationStatus');
+
+        if (form.classList.contains('disabled-form')) return;
+
+        // Form data collect karein
+        const fullName = document.getElementById('fullName').value.trim();
+        const collegeName = document.getElementById('collegeName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const experience = document.getElementById('experience').value;
+
+        // Basic validation
+        if (!fullName || !collegeName || !email || !phone || !experience) {
+            errorMessage.textContent = 'Please fill all fields correctly.';
+            errorMessage.classList.remove('hidden');
+            return;
         }
 
-        // Form submission handler
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const form = document.getElementById('registrationForm');
-            const errorMessage = document.getElementById('errorMessage');
-            const status = document.getElementById('registrationStatus');
+        if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(email)) {
+            errorMessage.textContent = 'Please enter a valid email address.';
+            errorMessage.classList.remove('hidden');
+            return;
+        }
 
-            if (form.classList.contains('disabled-form')) {
-                return;
-            }
+        if (!/^[0-9]{10}$/.test(phone)) {
+            errorMessage.textContent = 'Please enter a valid 10-digit phone number.';
+            errorMessage.classList.remove('hidden');
+            return;
+        }
 
-            // Form data collect karein
-            const fullName = document.getElementById('fullName').value.trim();
-            const collegeName = document.getElementById('collegeName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const experience = document.getElementById('experience').value;
+        // Google Sheets Form Submit
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwBxukbSPmMQctlm8lxjwsz3HGC_qgaQFsVhWzuf3A/dev';
+        const formData = new FormData();
+        formData.append('fullName', fullName);
+        formData.append('collegeName', collegeName);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('experience', experience);
 
-            // Basic validation
-            if (!fullName || !collegeName || !email || !phone || !experience) {
-                errorMessage.textContent = 'Please fill all fields correctly.';
-                errorMessage.classList.remove('hidden');
-                return;
-            }
-
-            if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(email)) {
-                errorMessage.textContent = 'Please enter a valid email address.';
-                errorMessage.classList.remove('hidden');
-                return;
-            }
-
-            if (!/^[0-9]{10}$/.test(phone)) {
-                errorMessage.textContent = 'Please enter a valid 10-digit phone number.';
-                errorMessage.classList.remove('hidden');
-                return;
-            }
-
-            // Form data JSON format mein bhejein
-            const formData = {
-                fullName: fullName,
-                collegeName: collegeName,
-                email: email,
-                phone: phone,
-                experience: experience
-            };
-
-            fetch(form.action, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
-                    // Success hone par redirect karein
-                    window.location.href = 'https://rdsteam18.netlify.app/';
-                } else {
-                    errorMessage.textContent = 'An error occurred while submitting the form.';
-                    errorMessage.classList.remove('hidden');
-                }
-            })
-            .catch(error => {
-                errorMessage.textContent = 'An error occurred: ' + error.message;
-                errorMessage.classList.remove('hidden');
-            });
+        fetch(scriptURL, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            alert("Thanks for contacting us! We will reach out soon.");
+            window.location.href = 'https://rdsteam18.netlify.app/';
+        })
+        .catch(error => {
+            errorMessage.textContent = 'An error occurred: ' + error.message;
+            errorMessage.classList.remove('hidden');
         });
+    });
 
-        // Run deadline check on page load
-        window.onload = checkRegistrationDeadline;
+    // Run deadline check on page load
+    window.onload = checkRegistrationDeadline;
+</script>
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>
