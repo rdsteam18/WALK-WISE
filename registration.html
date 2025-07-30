@@ -47,11 +47,11 @@
                     <span class="text-2xl font-bold gradient-text ml-4">WALK-WISE × WebCraze 1.0</span>
                 </div>
                 <div class="hidden md:flex md:space-x-6">
-                    <a href="index.html" class="text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium">Home</a>
+                    <a class='text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium' href='/'>Home</a>
                     <a href="about.html" class="text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium">About</a>
-                    <a href="index.html#prizes" class="text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium">Prizes</a>
-                    <a href="index.html#faq" class="text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium">FAQ</a>
-                    <a href="index.html#contact" class="text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium">Contact</a>
+                    <a class='text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium' href='/#prizes'>Prizes</a>
+                    <a class='text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium' href='/#faq'>FAQ</a>
+                    <a class='text-gray-700 hover:text-indigo-600 px-4 py-2 text-sm font-medium' href='/#contact'>Contact</a>
                 </div>
                 <div class="-mr-2 flex md:hidden">
                     <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
@@ -63,11 +63,11 @@
         </div>
         <div class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html" class="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a class='text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium' href='/'>Home</a>
                 <a href="about.html" class="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">About</a>
-                <a href="index.html#prizes" class="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Prizes</a>
-                <a href="index.html#faq" class="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">FAQ</a>
-                <a href="index.html#contact" class="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                <a class='text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium' href='/#prizes'>Prizes</a>
+                <a class='text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium' href='/#faq'>FAQ</a>
+                <a class='text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium' href='/#contact'>Contact</a>
             </div>
         </div>
     </nav>
@@ -77,44 +77,18 @@
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10 fade-in">
                 <h1 class="text-4xl font-extrabold gradient-text mb-4">Register for WebCraze 1.0</h1>
-                <p class="text-lg text-gray-600">Join the ultimate website design tournament by RDS TEAM! Fill out the form below to participate.</p>
+                <p class="text-lg text-gray-600">Join the ultimate website design tournament by RDS TEAM! Click below to register.</p>
                 <p id="registrationStatus" class="text-red-500 mt-2 hidden">Registration is closed as of August 2, 2025.</p>
             </div>
-            <form id="registrationForm" class="bg-white rounded-2xl p-8 shadow-lg" method="POST" action="https://script.google.com/macros/s/AKfycbyRKpHyxzoxcJKj2R9iBkQ9lSCDU3ursf_WGGG1ALi-WqZ1ggkKxhH6CMO--Qa5Them/exec">
+            <div id="registrationForm" class="bg-white rounded-2xl p-8 shadow-lg">
                 <div class="grid grid-cols-1 gap-6">
                     <div>
-                        <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
-                    </div>
-                    <div>
-                        <label for="collegeName" class="block text-sm font-medium text-gray-700">College Name</label>
-                        <input type="text" id="collegeName" name="collegeName" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" name="email" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-                    </div>
-                    <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" pattern="[0-9]{10}" placeholder="10-digit number" required>
-                    </div>
-                    <div>
-                        <label for="experience" class="block text-sm font-medium text-gray-700">Experience in Web Design</label>
-                        <select id="experience" name="experience" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
-                            <option value="">Select Experience</option>
-                            <option value="Beginner">Beginner</option>
-                            <option value="Intermediate">Intermediate</option>
-                            <option value="Pro">Pro</option>
-                        </select>
-                    </div>
-                    <div>
-                        <button type="submit" class="w-full bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 font-medium transition duration-300">
+                        <button onclick="window.location.href='https://forms.gle/9L67BvEMzpnXQqubA'" class="w-full bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 font-medium transition duration-300">
                             Register Now
                         </button>
                     </div>
                 </div>
-            </form>
-            <p id="errorMessage" class="text-red-500 text-center mt-4 hidden">Please fill all fields correctly.</p>
+            </div>
         </div>
     </section>
 
@@ -185,11 +159,11 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a class='text-gray-400 hover:text-white transition duration-300' href='/'>Home</a></li>
                         <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
-                        <li><a href="index.html#prizes" class="text-gray-400 hover:text-white transition duration-300">Prizes</a></li>
-                        <li><a href="index.html#faq" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
-                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                        <li><a class='text-gray-400 hover:text-white transition duration-300' href='/#prizes'>Prizes</a></li>
+                        <li><a class='text-gray-400 hover:text-white transition duration-300' href='/#faq'>FAQ</a></li>
+                        <li><a class='text-gray-400 hover:text-white transition duration-300' href='/#contact'>Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -272,67 +246,8 @@
         });
     });
 
-    // Form submission handler
-    document.getElementById('registrationForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        const form = document.getElementById('registrationForm');
-        const errorMessage = document.getElementById('errorMessage');
-        const status = document.getElementById('registrationStatus');
-
-        if (form.classList.contains('disabled-form')) return;
-
-        // Form data collect karein
-        const fullName = document.getElementById('fullName').value.trim();
-        const collegeName = document.getElementById('collegeName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const experience = document.getElementById('experience').value;
-
-        // Basic validation
-        if (!fullName || !collegeName || !email || !phone || !experience) {
-            errorMessage.textContent = 'Please fill all fields correctly.';
-            errorMessage.classList.remove('hidden');
-            return;
-        }
-
-        if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(email)) {
-            errorMessage.textContent = 'Please enter a valid email address.';
-            errorMessage.classList.remove('hidden');
-            return;
-        }
-
-        if (!/^[0-9]{10}$/.test(phone)) {
-            errorMessage.textContent = 'Please enter a valid 10-digit phone number.';
-            errorMessage.classList.remove('hidden');
-            return;
-        }
-
-        // Google Sheets Form Submit
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwBxukbSPmMQctlm8lxjwsz3HGC_qgaQFsVhWzuf3A/dev';
-        const formData = new FormData();
-        formData.append('fullName', fullName);
-        formData.append('collegeName', collegeName);
-        formData.append('email', email);
-        formData.append('phone', phone);
-        formData.append('experience', experience);
-
-        fetch(scriptURL, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            alert("Thanks for contacting us! We will reach out soon.");
-            window.location.href = 'https://rdsteam18.netlify.app/';
-        })
-        .catch(error => {
-            errorMessage.textContent = 'An error occurred: ' + error.message;
-            errorMessage.classList.remove('hidden');
-        });
-    });
-
     // Run deadline check on page load
     window.onload = checkRegistrationDeadline;
 </script>
-
 </body>
 </html>
